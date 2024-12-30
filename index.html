@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตัวอย่างรายชื่อสำหรับส่งการ์ดปีใหม่</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            padding: 2rem;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background: white;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status {
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.875rem;
+        }
+
+        .status.active {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status.pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 ตัวอย่างรายชื่อสำหรับส่งการ์ดปีใหม่</h1>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showPanel('line')">Line Groups</button>
+            <button class="tab" onclick="showPanel('telegram')">Telegram Users</button>
+        </div>
+
+        <div class="panel active" id="line-panel">
+            <a href="#" class="download-btn" onclick="alert('ดาวน์โหลดตัวอย่างไฟล์ Excel สำหรับ Line Groups')">
+                📥 ดาวน์โหลดตัวอย่าง Excel
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ชื่อกลุ่ม</th>
+                        <th>Token</th>
+                        <th>สมาชิก</th>
+                        <th>กำหนดส่ง</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ครอบครัว</td>
+                        <td>abc123...</td>
+                        <td>พ่อ, แม่, พี่, น้อง</td>
+                        <td>31/12/2024 23:59</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                    <tr>
+                        <td>เพื่อนสนิท</td>
+                        <td>def456...</td>
+                        <td>แดง, เขียว, น้ำเงิน</td>
+                        <td>31/12/2024 23:59</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                    <tr>
+                        <td>ที่ทำงาน</td>
+                        <td>ghi789...</td>
+                        <td>ผู้จัดการ, หัวหน้า, ทีม</td>
+                        <td>31/12/2024 09:00</td>
+                        <td><span class="status pending">รอการยืนยัน</span></td>
+                    </tr>
+                    <tr>
+                        <td>ลูกค้า VIP</td>
+                        <td>jkl012...</td>
+                        <td>คุณ A, คุณ B, คุณ C</td>
+                        <td>01/01/2025 09:00</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                    <tr>
+                        <td>สมาคมการค้า</td>
+                        <td>mno345...</td>
+                        <td>ประธาน, รองประธาน, กรรมการ</td>
+                        <td>31/12/2024 18:00</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="panel" id="telegram-panel">
+            <a href="#" class="download-btn" onclick="alert('ดาวน์โหลดตัวอย่างไฟล์ Excel สำหรับ Telegram Users')">
+                📥 ดาวน์โหลดตัวอย่าง Excel
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ชื่อ</th>
+                        <th>Username</th>
+                        <th>Chat ID</th>
+                        <th>กลุ่ม</th>
+                        <th>กำหนดส่ง</th>
+                        <th>ภาษา</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>คุณแดง</td>
+                        <td>@red_user</td>
+                        <td>123456789</td>
+                        <td>ครอบครัว</td>
+                        <td>31/12/2024 23:59</td>
+                        <td>ไทย</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                    <tr>
+                        <td>คุณเขียว</td>
+                        <td>@green_user</td>
+                        <td>234567890</td>
+                        <td>เพื่อน</td>
+                        <td>31/12/2024 23:59</td>
+                        <td>ไทย</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mr. Blue</td>
+                        <td>@blue_user</td>
+                        <td>345678901</td>
+                        <td>International</td>
+                        <td>01/01/2025 00:00</td>
+                        <td>อังกฤษ</td>
+                        <td><span class="status pending">รอการยืนยัน</span></td>
+                    </tr>
+                    <tr>
+                        <td>คุณขาว</td>
+                        <td>@white_user</td>
+                        <td>456789012</td>
+                        <td>ที่ทำงาน</td>
+                        <td>31/12/2024 09:00</td>
+                        <td>ไทย</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                    <tr>
+                        <td>คุณดำ</td>
+                        <td>@black_user</td>
+                        <td>567890123</td>
+                        <td>ลูกค้า</td>
+                        <td>01/01/2025 09:00</td>
+                        <td>ไทย</td>
+                        <td><span class="status active">พร้อมส่ง</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        // ข้อมูลตัวอย่างสำหรับ Line Groups
+        const lineGroupsData = [
+            {
+                group_name: "ครอบครัว",
+                notify_token: "abc123...",
+                members: "พ่อ, แม่, พี่, น้อง",
+                schedule: "31/12/2024 23:59",
+                status: "พร้อมส่ง"
+            },
+            {
+                group_name: "เพื่อนสนิท",
+                notify_token: "def456...",
+                members: "แดง, เขียว, น้ำเงิน",
+                schedule: "31/12/2024 23:59",
+                status: "พร้อมส่ง"
+            },
+            {
+                group_name: "ที่ทำงาน",
+                notify_token: "ghi789...",
+                members: "ผู้จัดการ, หัวหน้า, ทีม",
+                schedule: "31/12/2024 09:00",
+                status: "รอการยืนยัน"
+            },
+            {
+                group_name: "ลูกค้า VIP",
+                notify_token: "jkl012...",
+                members: "คุณ A, คุณ B, คุณ C",
+                schedule: "01/01/2025 09:00",
+                status: "พร้อมส่ง"
+            },
+            {
+                group_name: "สมาคมการค้า",
+                notify_token: "mno345...",
+                members: "ประธาน, รองประธาน, กรรมการ",
+                schedule: "31/12/2024 18:00",
+                status: "พร้อมส่ง"
+            }
+        ];
+
+        // ข้อมูลตัวอย่างสำหรับ Telegram Users
+        const telegramUsersData = [
+            {
+                name: "คุณแดง",
+                username: "@red_user",
+                chat_id: "123456789",
+                group: "ครอบครัว",
+                schedule: "31/12/2024 23:59",
+                language: "ไทย",
+                status: "พร้อมส่ง"
+            },
+            {
+                name: "คุณเขียว",
+                username: "@green_user",
+                chat_id: "234567890",
+                group: "เพื่อน",
+                schedule: "31/12/2024 23:59",
+                language: "ไทย",
+                status: "พร้อมส่ง"
+            },
+            {
+                name: "Mr. Blue",
+                username: "@blue_user",
+                chat_id: "345678901",
+                group: "International",
+                schedule: "01/01/2025 00:00",
+                language: "อังกฤษ",
+                status: "รอการยืนยัน"
+            },
+            {
+                name: "คุณขาว",
+                username: "@white_user",
+                chat_id: "456789012",
+                group: "ที่ทำงาน",
+                schedule: "31/12/2024 09:00",
+                language: "ไทย",
+                status: "พร้อมส่ง"
+            },
+            {
+                name: "คุณดำ",
+                username: "@black_user",
+                chat_id: "567890123",
+                group: "ลูกค้า",
+                schedule: "01/01/2025 09:00",
+                language: "ไทย",
+                status: "พร้อมส่ง"
+            }
+        ];
+
+        // ฟังก์ชันดาวน์โหลดไฟล์ Excel
+        function downloadExcel(data, filename) {
+            // สร้าง worksheet
+            const ws = XLSX.utils.json_to_sheet(data);
+            
+            // สร้าง workbook
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+            
+            // สร้างไฟล์และดาวน์โหลด
+            XLSX.writeFile(wb, filename);
+        }
+
+        // ฟังก์ชันดาวน์โหลด CSV
+        function downloadCSV(data, filename) {
+            // แปลงข้อมูลเป็น CSV
+            const headers = Object.keys(data[0]);
+            let csv = headers.join(',') + '\n';
+            
+            data.forEach(row => {
+                csv += headers.map(header => {
+                    let cell = row[header] || '';
+                    // Escape commas and quotes
+                    cell = cell.toString().replace(/"/g, '""');
+                    if (cell.includes(',')) {
+                        cell = `"${cell}"`;
+                    }
+                    return cell;
+                }).join(',') + '\n';
+            });
+            
+            // สร้าง Blob และดาวน์โหลด
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        }
+
+        // แก้ไข event listeners สำหรับปุ่มดาวน์โหลด
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.onclick = (e) => {
+                e.preventDefault();
+                const format = window.confirm('เลือกรูปแบบไฟล์:\nOK = Excel (.xlsx)\nCancel = CSV (.csv)');
+                
+                if (btn.parentElement.id === 'line-panel') {
+                    if (format) {
+                        downloadExcel(lineGroupsData, 'line_groups.xlsx');
+                    } else {
+                        downloadCSV(lineGroupsData, 'line_groups.csv');
+                    }
+                } else {
+                    if (format) {
+                        downloadExcel(telegramUsersData, 'telegram_users.xlsx');
+                    } else {
+                        downloadCSV(telegramUsersData, 'telegram_users.csv');
+                    }
+                }
+            };
+        });
+
+        function showPanel(panelName) {
+            // Hide all panels
+            document.querySelectorAll('.panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected panel
+            document.getElementById(`${panelName}-panel`).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
